@@ -30,6 +30,9 @@
         <action
             android:id="@+id/action_signUp_to_signIn"
             app:destination="@id/signIn" />
+        <action
+            android:id="@+id/action_signUp_to_logOut"
+            app:destination="@id/logOut" />
     </fragment>
     <fragment
         android:id="@+id/logOut"

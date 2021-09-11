@@ -13,6 +13,7 @@ import com.example.authentication.R
 import com.example.authentication.api.ApiService
 import com.example.authentication.databinding.FragmentSignInBinding
 import com.example.authentication.hashPassword.Md5
+import com.example.authentication.model.ApiRequest
 import com.example.authentication.model.User
 import retrofit2.Call
 import retrofit2.Callback
@@ -30,43 +31,22 @@ class SignIn : Fragment() {
 
         binding.btnSignIn.setOnClickListener{
             if (binding.edtUserEmail.text.isNotEmpty() && binding.edtUserPassword.text.isNotEmpty()){
-                ApiService.apiService.checkUser(binding.edtUserEmail.text.toString()).enqueue(object: Callback<ArrayList<User> >{
-                    override fun onResponse(
-                        call: Call<ArrayList<User>>,
-                        response: Response<ArrayList<User>>
-                    ) {
-                        var listUsers = response.body() as ArrayList<User>
-                        if (listUsers.isEmpty()) {
-                            Toast.makeText(activity, "Your email hasn't been created yet. Please sign up", Toast.LENGTH_SHORT).show()
-                        }
-                        else {
-                            var tmpInput = Md5(binding.edtUserPassword.text.toString()).input
-                            Log.e("check", tmpInput)
-                            if (listUsers[0].userHashPassword.equals(tmpInput)){
-                                Log.e("check", "successful")
-                                Log.e("check", listUsers[0].userHashPassword)
-                                Toast.makeText(activity, "Sign in successful", Toast.LENGTH_SHORT).show()
-
-                                //save token
-                                context?.let{
-                                    Log.e("check", "ok")
-                                    val sharePreferences = it.getSharedPreferences("token", Context.MODE_PRIVATE)
-                                    sharePreferences.edit().putString("accessToken", listUsers[0].token).apply()
-                                    Navigation.findNavController(view).navigate(R.id.action_signIn_to_logOut)
-                                }
-                            }
-                            else {
-                                Toast.makeText(activity, "wrong password", Toast.LENGTH_SHORT).show()
-                            }
-                        }
+                val apiRequest = ApiRequest()
+                apiRequest.checkUser(binding.edtUserEmail.text.toString(), binding.edtUserPassword.text.toString(), activity){
+                    when (it) {
+                        0 //Tai khoan khong ton tai
+                        -> Toast.makeText(activity, "Your email hasn't been created yet. Please sign up", Toast.LENGTH_SHORT).show()
+                        1 // Tai khoan ton tai, dang nhap thanh cong
+                        -> Navigation.findNavController(view).navigate(R.id.action_signIn_to_logOut)
+                        2//Tai khoan ton tai, sai mat khau
+                        -> Toast.makeText(activity, "wrong password", Toast.LENGTH_SHORT).show()
+                        else -> Toast.makeText(activity, "Error", Toast.LENGTH_LONG).show()
                     }
+                }
 
-                    override fun onFailure(call: Call<ArrayList<User>>, t: Throwable) {
-                        Toast.makeText(activity, "Error", Toast.LENGTH_LONG).show()
-                    }
-
-
-                })
+            }
+            else{
+                Toast.makeText(activity, "Please fill all fields", Toast.LENGTH_SHORT).show()
             }
         }
 
