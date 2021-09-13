@@ -25,11 +25,10 @@ class LogOut : Fragment() {
             val token = sharesPreferences.getString("accessToken", "none")
             token?.let {
                 val apiRequest = ApiRequest()
-                apiRequest.getData(token) { x, userName, userEmail ->
+                apiRequest.getData(token) { x, userName ->
                     run{
                         if (x) {
-                            binding.tvName.text = userName
-                            binding.tvEmail.text = userEmail
+                            binding.tvName.text = ("Hello,\n$userName")
                         } else
                             Toast.makeText(activity, "Wrong Token", Toast.LENGTH_SHORT).show()
 

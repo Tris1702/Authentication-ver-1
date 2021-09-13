@@ -82,7 +82,7 @@ class ApiRequest{
         })
     }
 
-    fun getData(token: String, returnValue: (Boolean, String, String) -> Unit){
+    fun getData(token: String, returnValue: (Boolean, String) -> Unit){
         Log.e("checkk", token)
         ApiService.apiService.getDataFromToken(token).enqueue(object:
             Callback<ArrayList<User> > {
@@ -92,11 +92,11 @@ class ApiRequest{
             ) {
                 val user = (response.body() as ArrayList)[0]
                 Log.e("checkk", user.userName+"/"+user.userEmail)
-                returnValue(true, user.userName, user.userEmail) //Lay thanh cong
+                returnValue(true, user.userName) //Lay thanh cong
             }
 
             override fun onFailure(call: Call<ArrayList<User>>, t: Throwable) {
-                returnValue(false, "", "")
+                returnValue(false, "")
             }
 
         })

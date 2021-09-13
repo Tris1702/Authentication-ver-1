@@ -4,10 +4,20 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.17291666666666666" />
+        <entry key="app/src/main/res/drawable/ic_next.xml" value="0.2375" />
+        <entry key="app/src/main/res/drawable/ic_next_2.xml" value="0.16019736842105264" />
+        <entry key="app/src/main/res/drawable/ic_sign_in.xml" value="0.2375" />
+        <entry key="app/src/main/res/drawable/ic_sign_up.xml" value="0.2375" />
+        <entry key="app/src/main/res/drawable/ic_vector_1.xml" value="0.25364583333333335" />
+        <entry key="app/src/main/res/drawable/ic_vector_10.xml" value="0.16019736842105264" />
+        <entry key="app/src/main/res/drawable/ic_vector_11.xml" value="0.16019736842105264" />
+        <entry key="app/src/main/res/drawable/ic_vector_12.xml" value="0.16019736842105264" />
+        <entry key="app/src/main/res/drawable/ic_vector_4.xml" value="0.16019736842105264" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.35989583333333336" />
         <entry key="app/src/main/res/layout/fragment_log_out.xml" value="0.21557971014492755" />
-        <entry key="app/src/main/res/layout/fragment_sign_in.xml" value="0.35989583333333336" />
-        <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.35989583333333336" />
+        <entry key="app/src/main/res/layout/fragment_sign_in.xml" value="0.18135245901639344" />
+        <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.22" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.37604166666666666" />
       </map>
     </option>
   </component>

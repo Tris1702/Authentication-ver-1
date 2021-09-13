@@ -9,12 +9,11 @@ import retrofit2.http.*
 
 interface ApiService {
     companion object{
-        //Link api: http://192.168.21.103:3000/users
         var gson = GsonBuilder()
             .setDateFormat("yyyy-mm-dd HH:mm:ss")
             .create()
         var apiService: ApiService = Retrofit.Builder()
-            .baseUrl("http://192.168.21.103:3000/")
+            .baseUrl("http://192.168.21.109:3000/")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
             .create(ApiService::class.java)

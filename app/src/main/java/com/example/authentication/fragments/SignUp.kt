@@ -41,7 +41,10 @@ class SignUp : Fragment() {
                         0 //Tai khoan Email da duoc su dung
                         -> Toast.makeText(activity, "This email has been used", Toast.LENGTH_SHORT).show()
                         1 //Dang ki tai khoan thanh cong
-                        -> Toast.makeText(activity, "You're account has been created", Toast.LENGTH_SHORT).show()
+                        -> {
+                            Toast.makeText(activity, "You're account has been created", Toast.LENGTH_SHORT).show()
+                            Navigation.findNavController(view).navigate(R.id.action_signUp_to_signIn)
+                        }
                         2 -> Toast.makeText(activity, "Error", Toast.LENGTH_SHORT).show()
                     }
                 }
