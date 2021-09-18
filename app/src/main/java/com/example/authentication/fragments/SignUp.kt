@@ -1,8 +1,6 @@
 package com.example.authentication.fragments
 
 import android.os.Bundle
-import android.renderscript.ScriptGroup
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,16 +8,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.Navigation
 import com.example.authentication.R
-import com.example.authentication.api.ApiService
 import com.example.authentication.databinding.FragmentSignUpBinding
 import com.example.authentication.hashPassword.Md5
 import com.example.authentication.model.ApiRequest
 import com.example.authentication.model.User
-import io.jsonwebtoken.Jwts
-import io.jsonwebtoken.SignatureAlgorithm
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class SignUp : Fragment() {
     lateinit var binding: FragmentSignUpBinding

@@ -1,8 +1,6 @@
 package com.example.authentication.fragments
 
-import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,14 +8,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.Navigation
 import com.example.authentication.R
-import com.example.authentication.api.ApiService
 import com.example.authentication.databinding.FragmentSignInBinding
-import com.example.authentication.hashPassword.Md5
 import com.example.authentication.model.ApiRequest
-import com.example.authentication.model.User
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class SignIn : Fragment() {
     override fun onCreateView(
