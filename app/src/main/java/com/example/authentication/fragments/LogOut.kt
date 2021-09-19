@@ -11,6 +11,9 @@ import androidx.navigation.Navigation
 import com.example.authentication.R
 import com.example.authentication.databinding.FragmentLogOutBinding
 import com.example.authentication.api.ApiRequest
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class LogOut : Fragment() {
     override fun onCreateView(
@@ -24,14 +27,16 @@ class LogOut : Fragment() {
             val sharesPreferences = it.getSharedPreferences("token", Context.MODE_PRIVATE)
             val token = sharesPreferences.getString("accessToken", "none")
             token?.let {
-                val apiRequest = ApiRequest()
-                apiRequest.getData(token) { x, userName ->
-                    run{
-                        if (x) {
-                            binding.tvName.text = ("Hello,\n$userName")
-                        } else
-                            Toast.makeText(activity, "Wrong Token", Toast.LENGTH_SHORT).show()
+                GlobalScope.launch(Dispatchers.IO) {
+                    val apiRequest = ApiRequest()
+                    apiRequest.getData(token) { x, userName ->
+                        run {
+                            if (x) {
+                                binding.tvName.text = ("Hello,\n$userName")
+                            } else
+                                Toast.makeText(activity, "Wrong Token", Toast.LENGTH_SHORT).show()
 
+                        }
                     }
                 }
             }

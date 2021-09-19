@@ -12,6 +12,9 @@ import com.example.authentication.databinding.FragmentSignUpBinding
 import com.example.authentication.hashPassword.Md5
 import com.example.authentication.api.ApiRequest
 import com.example.authentication.model.User
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class SignUp : Fragment() {
     lateinit var binding: FragmentSignUpBinding
@@ -27,17 +30,36 @@ class SignUp : Fragment() {
 
         binding.btnSignUp.setOnClickListener{
             if (binding.edtName.text.isNotEmpty() && binding.edtEmail.text.isNotEmpty() && binding.edtPassword.text.isNotEmpty()) {
-                val apiRequest = ApiRequest()
-                apiRequest.updateUser(User(0, binding.edtName.text.toString(), binding.edtEmail.text.toString(), Md5(binding.edtPassword.text.toString()).input,""), activity){
-                    when (it) {
-                        0 //Tai khoan Email da duoc su dung
-                        -> Toast.makeText(activity, "This email has been used", Toast.LENGTH_SHORT).show()
-                        1 //Dang ki tai khoan thanh cong
-                        -> {
-                            Toast.makeText(activity, "You're account has been created", Toast.LENGTH_SHORT).show()
-                            Navigation.findNavController(view).navigate(R.id.action_signUp_to_signIn)
+                GlobalScope.launch(Dispatchers.IO) {
+                    val apiRequest = ApiRequest()
+                    apiRequest.updateUser(
+                        User(
+                            0,
+                            binding.edtName.text.toString(),
+                            binding.edtEmail.text.toString(),
+                            Md5(binding.edtPassword.text.toString()).input,
+                            ""
+                        ), activity
+                    ) {
+                        when (it) {
+                            0 //Tai khoan Email da duoc su dung
+                            -> Toast.makeText(
+                                activity,
+                                "This email has been used",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            1 //Dang ki tai khoan thanh cong
+                            -> {
+                                Toast.makeText(
+                                    activity,
+                                    "You're account has been created",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                                Navigation.findNavController(view)
+                                    .navigate(R.id.action_signUp_to_signIn)
+                            }
+                            2 -> Toast.makeText(activity, "Error", Toast.LENGTH_SHORT).show()
                         }
-                        2 -> Toast.makeText(activity, "Error", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
