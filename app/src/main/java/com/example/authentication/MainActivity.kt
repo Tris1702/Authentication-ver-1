@@ -1,9 +1,12 @@
 package com.example.authentication
 
 import android.content.Context
+import android.net.wifi.WifiManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.format.Formatter
 import androidx.navigation.fragment.NavHostFragment
+import com.example.authentication.api.ApiService
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -11,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         val navController = navHostFragment.navController
-        val sharesPreferences = applicationContext.getSharedPreferences("token", Context.MODE_PRIVATE)
+        var sharesPreferences = applicationContext.getSharedPreferences("token", Context.MODE_PRIVATE)
         val token = sharesPreferences.getString("accessToken", "none")
         if (token.equals("none"))
         {

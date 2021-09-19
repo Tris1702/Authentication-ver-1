@@ -10,7 +10,7 @@ import androidx.navigation.Navigation
 import com.example.authentication.R
 import com.example.authentication.databinding.FragmentSignUpBinding
 import com.example.authentication.hashPassword.Md5
-import com.example.authentication.model.ApiRequest
+import com.example.authentication.api.ApiRequest
 import com.example.authentication.model.User
 
 class SignUp : Fragment() {

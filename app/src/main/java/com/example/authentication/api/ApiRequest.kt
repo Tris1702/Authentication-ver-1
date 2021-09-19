@@ -1,11 +1,11 @@
-package com.example.authentication.model
+package com.example.authentication.api
 
 import android.content.Context
 import android.util.Log
 import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
-import com.example.authentication.api.ApiService
 import com.example.authentication.hashPassword.Md5
+import com.example.authentication.model.User
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.SignatureAlgorithm
 import retrofit2.Call

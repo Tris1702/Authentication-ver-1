@@ -6,14 +6,19 @@ import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.*
+import kotlin.collections.ArrayList
+
 
 interface ApiService {
+
     companion object{
+
+
         var gson = GsonBuilder()
             .setDateFormat("yyyy-mm-dd HH:mm:ss")
             .create()
         var apiService: ApiService = Retrofit.Builder()
-            .baseUrl("http://192.168.21.113:3000/")
+            .baseUrl("http://192.168.21.101:3000/")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
             .create(ApiService::class.java)

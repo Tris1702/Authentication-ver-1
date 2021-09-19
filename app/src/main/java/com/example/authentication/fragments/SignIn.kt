@@ -9,7 +9,7 @@ import android.widget.Toast
 import androidx.navigation.Navigation
 import com.example.authentication.R
 import com.example.authentication.databinding.FragmentSignInBinding
-import com.example.authentication.model.ApiRequest
+import com.example.authentication.api.ApiRequest
 
 class SignIn : Fragment() {
     override fun onCreateView(

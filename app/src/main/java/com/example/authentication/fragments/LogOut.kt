@@ -10,7 +10,7 @@ import android.widget.Toast
 import androidx.navigation.Navigation
 import com.example.authentication.R
 import com.example.authentication.databinding.FragmentLogOutBinding
-import com.example.authentication.model.ApiRequest
+import com.example.authentication.api.ApiRequest
 
 class LogOut : Fragment() {
     override fun onCreateView(
