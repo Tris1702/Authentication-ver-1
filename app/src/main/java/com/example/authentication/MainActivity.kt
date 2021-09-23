@@ -1,12 +1,13 @@
 package com.example.authentication
 
 import android.content.Context
-import android.net.wifi.WifiManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.format.Formatter
 import androidx.navigation.fragment.NavHostFragment
-import com.example.authentication.api.ApiService
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,14 +15,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         val navController = navHostFragment.navController
-        var sharesPreferences = applicationContext.getSharedPreferences("token", Context.MODE_PRIVATE)
-        val token = sharesPreferences.getString("accessToken", "none")
-        if (token.equals("none"))
-        {
-            navController.navigate(R.id.signIn)
-        }
-        else {
-            navController.navigate(R.id.logOut)
-        }
+        navController.navigate(R.id.splashFragment)
     }
 }

@@ -17,10 +17,12 @@
         tools:layout="@layout/fragment_sign_in" >
         <action
             android:id="@+id/action_signIn_to_signUp"
-            app:destination="@id/signUp" />
+            app:destination="@id/signUp"
+            app:enterAnim="@android:anim/slide_in_left"/>
         <action
             android:id="@+id/action_signIn_to_logOut"
-            app:destination="@id/logOut" />
+            app:destination="@id/logOut"
+            app:enterAnim="@android:anim/slide_in_left" />
     </fragment>
     <fragment
         android:id="@+id/signUp"
@@ -29,7 +31,8 @@
         tools:layout="@layout/fragment_sign_up">
         <action
             android:id="@+id/action_signUp_to_signIn"
-            app:destination="@id/signIn" />
+            app:destination="@id/signIn"
+            app:enterAnim="@anim/nav_default_enter_anim" />
         <action
             android:id="@+id/action_signUp_to_logOut"
             app:destination="@id/logOut" />
@@ -43,4 +46,22 @@
             android:id="@+id/action_logOut_to_signIn"
             app:destination="@id/signIn" />
     </fragment>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.authentication.fragments.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_signIn"
+            app:destination="@id/signIn" />
+        <action
+            android:id="@+id/action_splashFragment_to_logOut"
+            app:destination="@id/logOut"
+            app:enterAnim="@android:anim/fade_in" />
+    </fragment>
+    <fragment
+        android:id="@+id/loadingFragment"
+        android:name="com.example.authentication.LoadingFragment"
+        android:label="fragment_loading"
+        tools:layout="@layout/fragment_loading" />
 </navigation>

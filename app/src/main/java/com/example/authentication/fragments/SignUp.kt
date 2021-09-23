@@ -15,6 +15,7 @@ import com.example.authentication.model.User
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class SignUp : Fragment() {
     lateinit var binding: FragmentSignUpBinding
@@ -44,10 +45,10 @@ class SignUp : Fragment() {
                         when (it) {
                             0 //Tai khoan Email da duoc su dung
                             -> Toast.makeText(
-                                activity,
-                                "This email has been used",
-                                Toast.LENGTH_SHORT
-                            ).show()
+                                        activity,
+                                        "This email has been used",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
                             1 //Dang ki tai khoan thanh cong
                             -> {
                                 Toast.makeText(

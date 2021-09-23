@@ -50,7 +50,9 @@
             android:layout_marginLeft="@android:dimen/app_icon_size"
             android:hint="Email"
             android:textSize="18sp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:singleLine="true"
+            android:nextFocusForward="@id/edt_user_password"/>
         <EditText
             android:id="@+id/edt_user_password"
             android:layout_width="match_parent"
@@ -66,7 +68,8 @@
             app:layout_constraintTop_toBottomOf="@+id/edt_user_email"
             android:inputType="textPassword"
             android:textSize="18sp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:singleLine="true"/>
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_sign_in"
             android:layout_width="wrap_content"
