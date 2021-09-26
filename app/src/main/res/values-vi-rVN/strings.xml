@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Authentication</string>
+    <string name="sign_out" translatable="false">Đăng xuất</string>
+    <string name="password" translatable="false">Mật khẩu</string>
+    <string name="sign_in" translatable="false">Đăng nhập</string>
+    <string name="sign_up" translatable="false">Đăng kí</string>
+    <string name="welcome" translatable="false">Chào\nmừng</string>
+    <string name="hello" translatable="false">Xin chào</string>
+    <string name="create_account" translatable="false">Tạo \ntài khoản</string>
+    <string name="name" translatable="false">Tên</string>
+</resources>

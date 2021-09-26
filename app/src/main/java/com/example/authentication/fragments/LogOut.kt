@@ -32,7 +32,7 @@ class LogOut : Fragment() {
                     apiRequest.getData(token) { x, userName ->
                         run {
                             if (x) {
-                                binding.tvName.text = ("Hello,\n$userName")
+                                binding.tvName.text = ("${resources.getString(R.string.hello)}\n$userName")
                             } else
                                 Toast.makeText(activity, "Wrong Token", Toast.LENGTH_SHORT).show()
 

@@ -14,7 +14,7 @@ import retrofit2.Response
 
 class ApiRequest{
 
-    fun updateUser(newUser: User, fragment: FragmentActivity?, returnValue: (Int) -> Unit){ //nho phai truyen hashcode
+    fun updateUser(newUser: User, fragment: FragmentActivity?, returnValue: (String) -> Unit){ //nho phai truyen hashcode
         checkEmail(newUser.userEmail, fragment){
                 if (!it){
                     //create Token from userName, userEmail and userPassword
@@ -28,16 +28,16 @@ class ApiRequest{
                     ApiService.apiService.addUser(newUser).enqueue(object: Callback<User>{
                         override fun onResponse(call: Call<User>, response: Response<User>) {
                             Log.e("check", token)
-                            returnValue(1)//Dang ki tk thanh cong
+                            returnValue(token)//Dang ki tk thanh cong
                         }
 
                         override fun onFailure(call: Call<User>, t: Throwable) {
-                            returnValue(2) //Call Api loi
+                            returnValue("1") //Call Api loi
                         }
                     })
                 }
                 else{
-                    returnValue(0) //Email da duoc su dung
+                    returnValue("0") //Email da duoc su dung
                 }
         }
     }
@@ -77,7 +77,6 @@ class ApiRequest{
             override fun onFailure(call: Call<ArrayList<User>>, t: Throwable) {
                 returnValue(3) //Loi Api
             }
-
 
         })
     }

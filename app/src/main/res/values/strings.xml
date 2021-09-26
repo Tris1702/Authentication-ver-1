@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">Authentication</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="sign_out" translatable="false">Sign out</string>
+    <string name="password" translatable="false">Password</string>
+    <string name="sign_in" translatable="false">Sign in</string>
+    <string name="sign_up" translatable="false">Sign up</string>
+    <string name="welcome" translatable="false">Welcome\nback</string>
+    <string name="hello" translatable="false">Hello</string>
+    <string name="create_account" translatable="false">Create \nan account</string>
+    <string name="name" translatable="false">Name</string>
+
 </resources>

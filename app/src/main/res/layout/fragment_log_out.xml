@@ -35,7 +35,7 @@
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginStart="60dp"
             android:layout_marginTop="190dp"
-            android:hint="Hello,\nTris"
+            android:hint="@string/hello"
             android:textColor="@color/black"
             android:textSize="50sp"/>
         <androidx.appcompat.widget.AppCompatButton
@@ -46,7 +46,7 @@
             app:layout_constraintTop_toBottomOf="@id/tv_name"
             android:layout_marginTop="300dp"
             android:layout_marginStart="150dp"
-            android:text="Sign out"
+            android:text="@string/sign_out"
             android:textStyle="italic"
             android:textAllCaps="false"
             android:textSize="36sp"
