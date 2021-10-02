@@ -28,16 +28,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             android:src="@drawable/ic_vector_2"/>
-<!--        <androidx.appcompat.widget.AppCompatImageButton-->
-<!--            android:id="@+id/img_btn_language"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            app:layout_constraintRight_toRightOf="parent"-->
-<!--            android:layout_marginTop="30dp"-->
-<!--            android:layout_marginRight="20dp"-->
-<!--            android:src="@drawable/ic_united_kingdom"-->
-<!--            android:background="@android:color/transparent"/>-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
