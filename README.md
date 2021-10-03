@@ -1,7 +1,7 @@
-#UML
+# UML
 https://app.diagrams.net/#G1iz0qMYi4dEAEV70LkLM1WvtAi4tpowIM
 
-#Mockup
+# Mockup
 
 https://www.figma.com/file/uXbYIratfKI9VfRvJEQkc1/Mock-up?node-id=0%3A1
 
