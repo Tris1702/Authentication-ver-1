@@ -32,7 +32,7 @@ class SignUp : Fragment() {
 
         binding.btnSignUp.setOnClickListener{
             if (binding.edtName.text.isNotEmpty() && binding.edtEmail.text.isNotEmpty() && binding.edtPassword.text.isNotEmpty()) {
-                GlobalScope.launch(Dispatchers.IO) {
+                lifecycleScope.launch(Dispatchers.IO) {
                     val apiRequest = ApiRequest()
                     apiRequest.updateUser(
                         User(
@@ -43,32 +43,40 @@ class SignUp : Fragment() {
                             ""
                         ), activity
                     ) {
-                        when (it) {
-                            "0" //Tai khoan Email da duoc su dung
-                            -> Toast.makeText(
-                                        activity,
-                                        "This email has been used",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                            "1" -> Toast.makeText(activity, "Error", Toast.LENGTH_SHORT).show()
-                            else //Dang ki tai khoan thanh cong
-                            -> {
-                                Toast.makeText(
+                        launch(Dispatchers.Main) {
+                            when (it) {
+                                "0" //Tai khoan Email da duoc su dung
+                                -> Toast.makeText(
                                     activity,
-                                    "You're account has been created",
+                                    "This email has been used",
                                     Toast.LENGTH_SHORT
                                 ).show()
-                                val sharePreferences = activity?.getSharedPreferences("token", Context.MODE_PRIVATE)
-                                sharePreferences?.edit()?.putString("accessToken", it)?.apply()
-                                Log.e("token moi", sharePreferences?.getString("accessToken", "none")!!)
-                                //Call loading dialog
-                                val loadingDialog = LoadingDialog(requireActivity())
-                                loadingDialog.startLoadingDialog()
-                                lifecycleScope.launch() {
-                                    delay(3000)
-                                    loadingDialog.closeLoadingDialog()
-                                    Navigation.findNavController(view)
-                                        .navigate(R.id.action_signUp_to_logOut)
+                                "1" -> Toast.makeText(activity, "Error", Toast.LENGTH_SHORT).show()
+                                else //Dang ki tai khoan thanh cong
+                                -> {
+                                    Toast.makeText(
+                                        activity,
+                                        "You're account has been created",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                    val sharePreferences = activity?.getSharedPreferences(
+                                        "token",
+                                        Context.MODE_PRIVATE
+                                    )
+                                    sharePreferences?.edit()?.putString("accessToken", it)?.apply()
+                                    Log.e(
+                                        "token moi",
+                                        sharePreferences?.getString("accessToken", "none")!!
+                                    )
+                                    //Call loading dialog
+                                    val loadingDialog = LoadingDialog(requireActivity())
+                                    loadingDialog.startLoadingDialog()
+                                    lifecycleScope.launch() {
+                                        delay(3000)
+                                        loadingDialog.closeLoadingDialog()
+                                        Navigation.findNavController(view)
+                                            .navigate(R.id.action_signUp_to_logOut)
+                                    }
                                 }
                             }
                         }

@@ -37,29 +37,32 @@ class SignIn : Fragment() {
                         binding.edtUserPassword.text.toString(),
                         activity
                     ) {
-                        when (it) {
-                            0 //Tai khoan khong ton tai
-                            -> Toast.makeText(
-                                activity,
-                                "Your email hasn't been created yet. Please sign up",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                            1 // Tai khoan ton tai, dang nhap thanh cong
-                            -> {
-                                //Call loading dialog
-                                val loadingDialog = LoadingDialog(requireActivity())
-                                loadingDialog.startLoadingDialog()
-                                lifecycleScope.launch() {
-                                    delay(3000)
-                                    loadingDialog.closeLoadingDialog()
-                                    //chuyen fragment
-                                    Navigation.findNavController(view)
-                                        .navigate(R.id.action_signIn_to_logOut)
+                        launch(Dispatchers.Main) {
+                            when (it) {
+                                0 //Tai khoan khong ton tai
+                                -> Toast.makeText(
+                                    activity,
+                                    "Your email hasn't been created yet. Please sign up",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                                1 // Tai khoan ton tai, dang nhap thanh cong
+                                -> {
+                                    //Call loading dialog
+                                    val loadingDialog = LoadingDialog(requireActivity())
+                                    loadingDialog.startLoadingDialog()
+                                    lifecycleScope.launch() {
+                                        delay(3000)
+                                        loadingDialog.closeLoadingDialog()
+                                        //chuyen fragment
+                                        Navigation.findNavController(view)
+                                            .navigate(R.id.action_signIn_to_logOut)
+                                    }
                                 }
+                                2//Tai khoan ton tai, sai mat khau
+                                -> Toast.makeText(activity, "wrong password", Toast.LENGTH_SHORT)
+                                    .show()
+                                else -> Toast.makeText(activity, "Error", Toast.LENGTH_LONG).show()
                             }
-                            2//Tai khoan ton tai, sai mat khau
-                            -> Toast.makeText(activity, "wrong password", Toast.LENGTH_SHORT).show()
-                            else -> Toast.makeText(activity, "Error", Toast.LENGTH_LONG).show()
                         }
                     }
                 }
