@@ -43,7 +43,7 @@ class SignUp : Fragment() {
                             ""
                         ), activity
                     ) {
-                        launch(Dispatchers.Main) {
+//                        launch(Dispatchers.Main) {
                             when (it) {
                                 "0" //Tai khoan Email da duoc su dung
                                 -> Toast.makeText(
@@ -79,7 +79,7 @@ class SignUp : Fragment() {
                                     }
                                 }
                             }
-                        }
+//                        }
                     }
                 }
             }

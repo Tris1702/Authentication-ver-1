@@ -37,7 +37,7 @@ class SignIn : Fragment() {
                         binding.edtUserPassword.text.toString(),
                         activity
                     ) {
-                        launch(Dispatchers.Main) {
+//                        launch(Dispatchers.Main) {
                             when (it) {
                                 0 //Tai khoan khong ton tai
                                 -> Toast.makeText(
@@ -63,7 +63,7 @@ class SignIn : Fragment() {
                                     .show()
                                 else -> Toast.makeText(activity, "Error", Toast.LENGTH_LONG).show()
                             }
-                        }
+//                        }
                     }
                 }
             }
