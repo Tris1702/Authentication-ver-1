@@ -1,3 +1,10 @@
+#UML
+https://app.diagrams.net/#G1iz0qMYi4dEAEV70LkLM1WvtAi4tpowIM
+
+#Mockup
+
+https://www.figma.com/file/uXbYIratfKI9VfRvJEQkc1/Mock-up?node-id=0%3A1
+
 # Authentication-ver-1
 
 Cung cấp cho người dùng khả năng tạo tài khoản (đầy đủ chức năng Log in/ Log out)
